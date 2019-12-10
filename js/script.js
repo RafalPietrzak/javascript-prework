@@ -1,45 +1,61 @@
-function playGame(playerInput){
+function playGame(playerInput) {
     clearMessages();
 
-    function getMoveName (moveID) {
-        return (
-            moveID == '1' ? 'kamień' : 
-            moveID == '2' ? 'papier' :  
-            moveID == '3' ? 'nożyce' : 
-            'Błąd'
-        );
+    function getMoveName(moveID) {
+        if (moveID == '1'){
+             return 'kamień';
+        } else if (moveID == '2') {
+            return 'papier';
+        } else if (moveID == '3') {
+            return 'nożyce'; 
+        } else {
+            return 'error';
+        } 
     }
 
-    function printResult (result){
-        printMessage('Twój ruch to ' + result[0] + '. Komputer wylosował ' + result[1] + '. ' + result[2]); //(1*)
-    }
-
-    function checkResult (playerMove, computerMove) {
-        return(
-        playerMove == computerMove ? [playerMove, computerMove, 'Remis!']  : //(1*)
-        playerMove == 'kamień' && computerMove == 'papier' ? [playerMove, computerMove, 'Przegrałeś :['] :
-        playerMove == 'kamień' && computerMove == 'nożyce' ? [playerMove, computerMove, 'Wygrałeś !!!'] :
-        playerMove == 'nożyce' && computerMove == 'papier' ? [playerMove, computerMove, 'Wygrałeś !!!'] :
-        playerMove == 'nożyce' && computerMove == 'kamień' ? [playerMove, computerMove, 'Przegrałeś :['] :
-        playerMove == 'papier' && computerMove == 'nożyce' ? [playerMove, computerMove, 'Przegrałeś :['] :
-        playerMove == 'papier' && computerMove == 'kamień' ? [playerMove, computerMove, 'Wygrałeś !!!'] :
-        ['Błąd #^*^@!', '' ,'']
-     )
+    function checkResult(playerMove, computerMove) {
+        const result = {
+            'draw': 'Remis!',
+            'playerWin': 'Wygrałeś !!!',
+            'computerWin': 'Przegrałeś :[',
+            'printResult': function (playerMove, computerMove, result) {
+                    printMessage('Twój ruch to ' + playerMove + 
+                    '. Komputer wylosował ' + computerMove + 
+                    '. ' + result); 
+                }
+            };
+        
+        if (playerMove == computerMove) {
+            result.printResult(playerMove, computerMove, result.draw);
+        } else if (playerMove == 'kamień' && computerMove == 'papier'){
+            result.printResult(playerMove, computerMove, result.computerWin);
+        } else if (playerMove == 'kamień' && computerMove == 'nożyce'){
+            result.printResult(playerMove, computerMove, result.playerWin);
+        } else if (playerMove == 'nożyce' && computerMove == 'papier'){
+            result.printResult(playerMove, computerMove, result.playerWin);
+        } else if (playerMove == 'nożyce' && computerMove == 'kamień'){
+            result.printResult(playerMove, computerMove, result.computerWin);
+        } else if (playerMove == 'papier' && computerMove == 'nożyce'){
+            result.printResult(playerMove, computerMove, result.computerWin);
+        } else if (playerMove == 'papier' && computerMove == 'kamień'){
+            result.printResult(playerMove, computerMove, result.playerWin);
+        } else {
+            console.log('ERROR')    
+        }         
     }
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
-   // let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
     let playerMove = getMoveName(playerInput);
     let computerMove = getMoveName(randomNumber);
-    printResult(checkResult (playerMove, computerMove)); 
+    checkResult(playerMove, computerMove);
 }
 
-document.getElementById('play-rock').addEventListener('click', function(){
+document.getElementById('play-rock').addEventListener('click', function () {
     playGame('1');
 });
-document.getElementById('play-paper').addEventListener('click', function(){
+document.getElementById('play-paper').addEventListener('click', function () {
     playGame('2');
 });
-document.getElementById('play-scissors').addEventListener('click', function(){
+document.getElementById('play-scissors').addEventListener('click', function () {
     playGame('3');
 });
