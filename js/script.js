@@ -98,24 +98,27 @@ const game = function (){
     const buttons = {
         'playerRock'  : {
             'id' : 'player-rock',
-            'click' : function () { incrementFild.roundNumber.add()}
+            'click' : function () { 
+                    incrementFilds.roundNumber.add();
+                    updateFilds.roundResult.update(432);
+                }
         },
         'playerPaper' : {
             'id' : 'player-paper',
-            'click' : function () { incrementFild.roundNumber.add()}
+            'click' : function () { incrementFilds.roundNumber.add()}
         },
         'playeScissors' : {
             'id' : 'player-scissors',
-            'click' : function () { incrementFild.roundNumber.add()}
+            'click' : function () { incrementFilds.roundNumber.add()}
         },
         'nextRound' : {
             'id' : 'next-round',
-            'click' : function () { incrementFild.roundNumber.add()}
+            'click' : function () { incrementFilds.roundNumber.add()}
         }
     }
     
     //Key - css id filds, value element and increment function
-    const incrementFild = {
+    const incrementFilds = {
         'roundNumber' : {
             id: 'round-number', 
             element: null, 
@@ -134,17 +137,28 @@ const game = function (){
     }
 
     //Key - css id filds, value element and increment function
-    const updateFild = {
-        'round-result' : {element: null, updata: null},
-        'player-move'  : {element: null, updata: null},
-        'computer-move' :  {element: null, updata: null},
+    const updateFilds = {
+        'roundResult' : {
+            id: 'round-result',
+            element: null, 
+            update: null
+        },
+        'playerMove'  : {
+            id: 'player-move',
+            element: null, 
+            update: null
+        },
+        'computer-move' :  {
+            id: 'computer-move',
+            element: null, 
+            update: null
         }
-    
-    
+    }
+
     //Get element and add increment function '.add()'
     const addIncrementFunction = function () {
-        for(let key of Object.keys(incrementFild)){
-            let fild = incrementFild[key];
+        for(let key of Object.keys(incrementFilds)){
+            let fild = incrementFilds[key];
             fild.element = document.getElementById(fild.id);
             fild.add = function () {
                 this.state = this.state + 1;
@@ -161,10 +175,23 @@ const game = function (){
         }     
     }
 
+    //Get element and add update function(content)
+    const addUpdateFunction = function () {
+        for(let key of Object.keys(updateFilds)){
+            let fild = updateFilds[key];
+            fild.element = document.getElementById(fild.id);
+            fild.update = function (content) {
+                this.state = this.state + 1;
+                this.element.innerHTML = '' + content;
+            } 
+        }
+    }
+
     //Colect all nesesery function for innit game
     initGame = function () {
         addListeners();
         addIncrementFunction();
+        addUpdateFunction();
     }
     initGame();
 }
