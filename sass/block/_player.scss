@@ -46,6 +46,9 @@
     &:hover {
         @include color('main', 'bg', -30);
     }
+    &:disabled {
+        @include color('main', 'bg', 30); 
+    }
 }
 
 .player__control-icon {

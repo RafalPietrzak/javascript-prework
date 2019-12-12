@@ -98,34 +98,61 @@ const game = function (){
     const buttons = {
         'playerRock'  : {
             'id' : 'player-rock',
+            'element' : {},
             'click' : function () { 
-                    incrementFilds.roundNumber.add();
-                    updateFilds.roundResult.update(432);
-                }
+                switchButton();
+                updateFilds.playerMove.update(moveIcon.rock);
+            },
+            'disabled' : true 
         },
         'playerPaper' : {
             'id' : 'player-paper',
-            'click' : function () { incrementFilds.roundNumber.add()}
+            'element' : {},
+            'click' : function () {
+                switchButton();
+                updateFilds.playerMove.update(moveIcon.paper);
+            },
+            'disabled' : true
         },
         'playeScissors' : {
             'id' : 'player-scissors',
-            'click' : function () { incrementFilds.roundNumber.add()}
+            'element' : {},
+            'click' : function () {
+                switchButton();
+                updateFilds.playerMove.update(moveIcon.scissors);
+            },
+            'disabled' : true
         },
         'nextRound' : {
             'id' : 'next-round',
-            'click' : function () { incrementFilds.roundNumber.add()}
+            'element' : {},
+            'click' : function () { 
+                this.innerHTML = 'Następna runda';
+                updateFilds.playerMove.update(moveIcon.newRound);
+                updateFilds.computerMove.update(moveIcon.newRound);
+                switchButton();
+                incrementFilds.roundNumber.add()
+            },
+            'disabled' : false
         }
     }
     
+    const switchButton = function () {
+        for(key of Object.keys(buttons)){
+            buttons[key].disabled = !buttons[key].disabled; 
+            buttons[key].element.disabled = buttons[key].disabled; 
+        }
+    }
+
     //Key - css id filds, value element and increment function
     const incrementFilds = {
         'roundNumber' : {
             id: 'round-number', 
             element: null, 
             add: null, 
-            state: 1}, 
-        'palyerScore' : {
-            id: 'palyer-score', 
+            state: 0}, 
+        'playerScore' : {
+            id: 'player-score', 
             element: null, 
             add: null, 
             state: 0},
@@ -148,13 +175,26 @@ const game = function (){
             element: null, 
             update: null
         },
-        'computer-move' :  {
+        'computerMove' :  {
             id: 'computer-move',
             element: null, 
             update: null
         }
     }
 
+    const resultLabel = {
+        'playerWin' : 'Gratuluje, wygrałeś!',
+        'playerFail': 'Niestety, przegrałeś!',
+        'draw' : 'Remis!'
+    }
+
+    const moveIcon = {
+        'newRound' : '<i class="fas fa-spinner player__move-icon"></i>',
+        'rock' : '<i class="fas fa-hand-rock player__move-icon"></i>',
+        'paper' : '<i class="fas fa-hand-paper player__move-icon"></i>',
+        'scissors' : '<i class="fas fa-hand-scissors player__move-icon"></i>',
+    }
+    
     //Get element and add increment function '.add()'
     const addIncrementFunction = function () {
         for(let key of Object.keys(incrementFilds)){
@@ -167,11 +207,14 @@ const game = function (){
         }
     } 
     
-    //Add listeners to all button
+    //Get element and add listeners to all button
     const addListeners = function () {
         for(let key of Object.keys(buttons)){
             let button = buttons[key];
-            document.getElementById(button.id).addEventListener('click', button.click);  
+            button.element = document.getElementById(button.id);
+            button.element.addEventListener('click', button.click);
+            console.log( button.element.disabled, )
+            button.element.disabled = button.disabled;  
         }     
     }
 

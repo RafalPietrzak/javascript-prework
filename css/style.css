@@ -109,6 +109,10 @@
   background-color: #5e4206;
 }
 
+.player__control:disabled {
+  background-color: #f9dc9c;
+}
+
 .player__control-icon {
   font-size: 3rem;
   color: white;
