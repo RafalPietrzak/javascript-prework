@@ -1,0 +1,54 @@
+.player {
+    @include color('main','bg',-20);
+    display: flex;
+    flex-wrap: wrap;
+}
+.player__name {
+    flex: 40%;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    @include color('main','bg',-35);
+    @include color('main','c', 100);
+}
+
+.player__score {
+    flex: 40%;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    @include color('main','bg',-25);
+    @include color('main','c', 100);
+}
+
+.player__move {
+    text-align: center;
+    flex: 100%;
+    @include color('main','bg', 25);
+    padding: 30px;
+}
+
+.player__move-icon {
+    font-size: 8rem;
+}
+
+.player__controls {
+    flex: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+} 
+
+.player__control {
+    @include color('main', 'bg', -40);
+    margin: 10px;
+    padding: 10px;
+    &:hover {
+        @include color('main', 'bg', -30);
+    }
+}
+
+.player__control-icon {
+    font-size: 3rem;
+    @include color('main', 'c', 100);
+}

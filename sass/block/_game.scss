@@ -1,0 +1,46 @@
+
+.game {
+    @include color('main','bg');
+    height: 100vh;
+    display: flex;
+}
+
+.game__container {
+    @include color('main','bg', -5);
+    margin: auto;
+    padding: 10px 20px;
+    max-width: 1000px;
+}
+
+.game__row {
+    margin: 10px 0;
+    display: flex;
+    padding: 2%;
+    justify-content: space-between;
+    @include color('main','bg', -10);
+}
+
+.game__col {
+    @include color('main','bg', -15);
+}
+
+.game__col--50 {
+    max-width: 49%;
+    flex: 50%;
+}
+
+.game__title-2 {
+    text-align: center;
+    @include color('main','c', 100);
+}
+
+.game__next-round {
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 2rem;
+    @include color('main','bg', -20);
+    &:hover{
+        @include color('main','bg', 0);
+    }
+}

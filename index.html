@@ -1,20 +1,95 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <title>Kamień, papier, nożyce</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+        integrity="sha256-piqEf7Ap7CMps8krDQsSOTZgF+MU/0MPyPW2enj5I40=" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <div id="buttons">
-            <button id="play-rock">kamień</button>
-            <button id="play-paper">papier</button>
-            <button id="play-scissors">nożyce</button>
+    <div class="game">
+        <div class="game__container">
+            <div class="game__row">
+                <div class="game__col game__col--50">
+                    <h2 class="game__title-2">RUNDA: 
+                        <span id="round-number">1</span>
+                    </h2>
+                </div>
+                <div class="game__col game__col--50">
+                    <h2 class="game__title-2">WYNIK: 
+                        <span id="round-result"></span>
+                    </h2>
+                </div>
+            </div>
+            <div class="game__row">
+                <div class="game__col game__col--50">
+                    <div class="player">
+                        <h3 class="player__name">Player</h3>
+                        <p class="player__score">Score: 
+                            <span id="palyer-score">0</span>
+                        </p>
+                        <div class="player__move">
+                            <i class="fas fa-spinner player__move-icon" 
+                                id="player-move">
+                            </i>
+                        </div>
+                        <div class="player__controls">
+                            <div class="player__control" id="player-rock">
+                                <i class="fas fa-hand-rock player__control-icon">
+                                </i>
+                            </div>
+                            <div class="player__control" id="player-paper">
+                                <i class="fas fa-hand-paper player__control-icon">
+                                </i>
+                            </div>
+                            <div class="player__control" id="player-scissors">
+                                <i class="fas fa-hand-scissors player__control-icon">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="game__col game__col--50">
+                    <div class="player">
+                        <h3 class="player__name">Computer</h3>
+                        <p class="player__score">
+                            Score: <span id="computer-score">0</span></p>
+                        <div class="player__move">
+                            <i class="fas fa-spinner player__move-icon" 
+                                id="computer-move">
+                            </i>
+                        </div>
+                        <div class="player__controls">
+                            <div class="player__control">
+                                <i class="fas fa-hand-rock player__control-icon">
+                                </i>
+                            </div>
+                            <div class="player__control">
+                                <i class="fas fa-hand-paper player__control-icon">
+                                </i>
+                            </div>
+                            <div class="player__control">
+                                <i class="fas fa-hand-scissors player__control-icon">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="game__row">
+                <div class="game__next-round" id="next-round">
+                    Nastepna runda
+                </div>
+            </div>
         </div>
-        <div id="messages"></div>
     </div>
+
     <script src="js/functions.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

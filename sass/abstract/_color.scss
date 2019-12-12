@@ -1,0 +1,39 @@
+$color-map: (
+    'bg' : hsl(120, 43%, 52%),
+    'main' : rgb(238, 167, 14),
+    'error' : rgb(255, 0, 221)
+); 
+
+@function valueName($col){
+    @if map-has-key($color-map, $col) {
+        @return map-get($color-map, $col); 
+    } @else {
+        @return map-get($color-map, 'error');
+    }
+}    
+
+@function properytyName($prop){
+    @if $prop == 'c' {
+        @return color;
+    }@else if $prop == 'br'{
+        @return border-color;
+    }@else if $prop == 'bg'{
+        @return background-color;
+    }@else {
+        @return color;
+    }    
+}
+
+@mixin color($col, $prop:'c', $modification: 0, $alpha: 1){
+    $col: valueName($col);
+    $col: hsla(hue($col), saturation($col), lightness($col), $alpha);
+
+    @if $modification == 0 {
+        #{properytyName($prop)}: $col;
+    }@else if $modification < 0 {
+        #{properytyName($prop)}: darken($col, $modification * -1%);
+    }@else if $modification > 0 {
+        #{properytyName($prop)}: lighten($col, $modification * 1%);
+    } 
+}
+
