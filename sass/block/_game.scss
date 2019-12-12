@@ -1,12 +1,13 @@
 
 .game {
-    @include color('main','bg');
+    @include color('bg','bg');
     height: 100vh;
     display: flex;
+    font-family: sans-serif;
 }
 
 .game__container {
-    @include color('main','bg', -5);
+    @include color('bg','bg');
     margin: auto;
     padding: 10px 20px;
     max-width: 1000px;
@@ -17,11 +18,13 @@
     display: flex;
     padding: 2%;
     justify-content: space-between;
-    @include color('main','bg', -10);
+    @include color('bg','bg');
 }
 
 .game__col {
-    @include color('main','bg', -15);
+    @include color('bg','br', -3);
+    @include color('bg','bg', 5);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 .game__col--50 {
@@ -31,16 +34,32 @@
 
 .game__title-2 {
     text-align: center;
-    @include color('main','c', 100);
+    @include color('text-light','c');
+}
+
+.game__title-2--highlight {
+    @include color('main','c');
 }
 
 .game__next-round {
+    @include color('main', 'br', -15);
+    border-width: 1px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    min-width: 200px;
     max-width: 300px;
     margin: 10px auto;
-    padding: 10px;
+    padding: 20px;
     font-size: 2rem;
-    @include color('main','bg', -20);
+    @include color('main','bg');
+    @include color('text-light','c');
+
     &:hover{
-        @include color('main','bg', 0);
+        @include color('main','bg', -10);
+    }
+
+    &:disabled {
+        @include color('bg', 'br', 5);
+        @include color('bg','bg', 10);
+        @include color('bg','c', 20);
     }
 }

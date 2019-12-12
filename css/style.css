@@ -1,12 +1,13 @@
 .game {
-  background-color: #eea70e;
+  background-color: #2e2b29;
   height: 100vh;
   display: -ms-flexbox;
   display: flex;
+  font-family: sans-serif;
 }
 
 .game__container {
-  background-color: #d6960d;
+  background-color: #2e2b29;
   margin: auto;
   padding: 10px 20px;
   max-width: 1000px;
@@ -19,11 +20,13 @@
   padding: 2%;
   -ms-flex-pack: justify;
       justify-content: space-between;
-  background-color: #be850b;
+  background-color: #2e2b29;
 }
 
 .game__col {
-  background-color: #a6740a;
+  border-color: #252422;
+  background-color: #3b3835;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 .game__col--50 {
@@ -34,23 +37,40 @@
 
 .game__title-2 {
   text-align: center;
-  color: white;
+  color: #eefaeb;
+}
+
+.game__title-2--highlight {
+  color: #dd790e;
 }
 
 .game__next-round {
+  border-color: #955109;
+  border-width: 1px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  min-width: 200px;
   max-width: 300px;
   margin: 10px auto;
-  padding: 10px;
+  padding: 20px;
   font-size: 2rem;
-  background-color: #8e6308;
+  background-color: #dd790e;
+  color: #eefaeb;
 }
 
 .game__next-round:hover {
-  background-color: #eea70e;
+  background-color: #ad5e0b;
+}
+
+.game__next-round:disabled {
+  border-color: #3b3835;
+  background-color: #484541;
+  color: #635e5a;
 }
 
 .player {
-  background-color: #8e6308;
+  border: 1px solid;
+  border-color: #252422;
+  background-color: #3b3835;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -63,7 +83,7 @@
   margin: 0;
   padding: 20px;
   text-align: center;
-  background-color: #453104;
+  background-color: #3b3835;
   color: white;
 }
 
@@ -73,19 +93,21 @@
   margin: 0;
   padding: 20px;
   text-align: center;
-  background-color: #765307;
-  color: white;
+  background-color: #3b3835;
+  color: #eefaeb;
 }
 
 .player__move {
   text-align: center;
   -ms-flex: 100%;
       flex: 100%;
-  background-color: #f8d384;
+  background-color: #484541;
   padding: 30px;
 }
 
 .player__move-icon {
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  color: #dd790e;
   font-size: 8rem;
 }
 
@@ -100,21 +122,26 @@
 }
 
 .player__control {
-  background-color: #2d2003;
+  border: 1px solid;
+  border-color: #c56c0d;
+  background-color: #dd790e;
+  color: #eefaeb;
   margin: 10px;
   padding: 10px;
 }
 
 .player__control:hover {
-  background-color: #5e4206;
+  border-color: #653706;
+  background-color: #7d4408;
 }
 
 .player__control:disabled {
-  background-color: #f9dc9c;
+  border-color: #3b3835;
+  background-color: #484541;
+  color: #56524e;
 }
 
 .player__control-icon {
   font-size: 3rem;
-  color: white;
 }
 /*# sourceMappingURL=style.css.map */

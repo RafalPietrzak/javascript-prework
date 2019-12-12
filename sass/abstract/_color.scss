@@ -1,7 +1,10 @@
 $color-map: (
-    'bg' : hsl(120, 43%, 52%),
-    'main' : rgb(238, 167, 14),
-    'error' : rgb(255, 0, 221)
+    'text-light':hsl(107, 58%, 95%),
+    'box-2':hsl(90, 27%, 64%),
+    'box-3':hsl(158, 15%, 41%),
+    'bg' : hsl(30, 5%, 17%),
+    'main' : hsl(31, 88%, 46%),
+    'error' : hsl(308, 100%, 50%)
 ); 
 
 @function valueName($col){
@@ -25,9 +28,10 @@ $color-map: (
 }
 
 @mixin color($col, $prop:'c', $modification: 0, $alpha: 1){
+   
     $col: valueName($col);
     $col: hsla(hue($col), saturation($col), lightness($col), $alpha);
-
+    
     @if $modification == 0 {
         #{properytyName($prop)}: $col;
     }@else if $modification < 0 {

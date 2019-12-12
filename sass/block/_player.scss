@@ -1,5 +1,7 @@
 .player {
-    @include color('main','bg',-20);
+    border: 1px solid;
+    @include color('bg','br', -3);
+    @include color('bg','bg', 5);
     display: flex;
     flex-wrap: wrap;
 }
@@ -8,8 +10,8 @@
     margin: 0;
     padding: 20px;
     text-align: center;
-    @include color('main','bg',-35);
-    @include color('main','c', 100);
+    @include color('bg','bg', 5);
+    @include color('text-light','c', 100);
 }
 
 .player__score {
@@ -17,18 +19,20 @@
     margin: 0;
     padding: 20px;
     text-align: center;
-    @include color('main','bg',-25);
-    @include color('main','c', 100);
+    @include color('bg','bg', 5);
+    @include color('text-light','c');
 }
 
 .player__move {
     text-align: center;
     flex: 100%;
-    @include color('main','bg', 25);
+    @include color('bg','bg', 10);
     padding: 30px;
 }
 
 .player__move-icon {
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    @include color('main', 'c');
     font-size: 8rem;
 }
 
@@ -40,18 +44,23 @@
 } 
 
 .player__control {
-    @include color('main', 'bg', -40);
+    border: 1px solid;
+    @include color('main','br', -5);
+    @include color('main', 'bg');
+    @include color('text-light', 'c');
     margin: 10px;
     padding: 10px;
     &:hover {
-        @include color('main', 'bg', -30);
+        @include color('main', 'br', -25);
+        @include color('main', 'bg', -20);
     }
     &:disabled {
-        @include color('main', 'bg', 30); 
+        @include color('bg', 'br', 5);
+        @include color('bg', 'bg', 10);
+        @include color('bg', 'c', 15); 
     }
 }
 
 .player__control-icon {
     font-size: 3rem;
-    @include color('main', 'c', 100);
 }
