@@ -149,15 +149,15 @@ const game = function (){
     }
 
     const resultLabel = {
-        'playerWin' : 'Gratuluje, wygrałeś!',
-        'playerFail': 'Niestety, przegrałeś!',
+        'playerWin' : 'Wygrałeś!',
+        'playerFail': 'Przegrałeś!',
         'draw' : 'Remis!'
     }
 
     const moves = {
         'noMove' : {
             'value' : null,
-            'icon' : '<i class="fas fa-spinner player__move-icon"></i>'
+            'icon' : '<i class="fas fa-spinner player__move-icon player__move-icon--animation"></i>'
         },
         'rock' : {
             'value' : '1',

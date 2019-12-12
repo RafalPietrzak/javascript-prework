@@ -33,7 +33,20 @@
 .player__move-icon {
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
     @include color('main', 'c');
-    font-size: 8rem;
+    font-size: 6rem;
+}
+
+@keyframes iconRotation {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(359deg);}
+}
+
+.player__move-icon--animation {
+    text-shadow: none;
+    @include color('bg', 'br', 5);
+    @include color('bg', 'bg', 10);
+    @include color('bg', 'c', 15); 
+    animation: iconRotation 3s infinite linear;
 }
 
 .player__controls {
@@ -41,6 +54,7 @@
     padding: 10px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 } 
 
 .player__control {
@@ -48,7 +62,7 @@
     @include color('main','br', -5);
     @include color('main', 'bg');
     @include color('text-light', 'c');
-    margin: 10px;
+    margin: 5px;
     padding: 10px;
     &:hover {
         @include color('main', 'br', -25);
@@ -61,6 +75,9 @@
     }
 }
 
+
 .player__control-icon {
-    font-size: 3rem;
+    font-size: 2rem;
 }
+
+

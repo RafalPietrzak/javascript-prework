@@ -21,6 +21,15 @@
     @include color('bg','bg');
 }
 
+.game__row--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    @include color('bg', 'bg', 1, 0.7);
+}
+
 .game__col {
     @include color('bg','br', -3);
     @include color('bg','bg', 5);
@@ -47,7 +56,7 @@
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
     min-width: 200px;
     max-width: 300px;
-    margin: 10px auto;
+    margin: auto;
     padding: 20px;
     font-size: 2rem;
     @include color('main','bg');

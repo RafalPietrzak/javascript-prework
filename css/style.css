@@ -23,6 +23,15 @@
   background-color: #2e2b29;
 }
 
+.game__row--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(48, 46, 44, 0.7);
+}
+
 .game__col {
   border-color: #252422;
   background-color: #3b3835;
@@ -50,7 +59,7 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   min-width: 200px;
   max-width: 300px;
-  margin: 10px auto;
+  margin: auto;
   padding: 20px;
   font-size: 2rem;
   background-color: #dd790e;
@@ -108,7 +117,24 @@
 .player__move-icon {
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   color: #dd790e;
-  font-size: 8rem;
+  font-size: 6rem;
+}
+
+@keyframes iconRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.player__move-icon--animation {
+  text-shadow: none;
+  border-color: #3b3835;
+  background-color: #484541;
+  color: #56524e;
+  animation: iconRotation 3s infinite linear;
 }
 
 .player__controls {
@@ -119,6 +145,8 @@
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .player__control {
@@ -126,7 +154,7 @@
   border-color: #c56c0d;
   background-color: #dd790e;
   color: #eefaeb;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
 }
 
@@ -142,6 +170,6 @@
 }
 
 .player__control-icon {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 /*# sourceMappingURL=style.css.map */

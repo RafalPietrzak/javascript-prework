@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kamień, papier, nożyce</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
@@ -20,7 +21,7 @@
                     </h2>
                 </div>
                 <div class="game__col game__col--50">
-                    <h2 class="game__title-2">WYNIK: 
+                    <h2 class="game__title-2"> 
                         <span class="game__title-2--highlight" id="round-result"></span>
                     </h2>
                 </div>
@@ -33,7 +34,9 @@
                             <span id="player-score">0</span>
                         </p>
                         <div class="player__move" id="player-move">
-                            <i class="fas fa-spinner player__move-icon"></i>
+                            <i class="fas fa-spinner 
+                                player__move-icon 
+                                player__move-icon--animation"></i>
                         </div>
                         <div class="player__controls">
                             <button class="player__control" id="player-rock">
@@ -57,7 +60,10 @@
                         <p class="player__score">
                             Score: <span id="computer-score">0</span></p>
                         <div class="player__move " id="computer-move">
-                            <i class="fas fa-spinner player__move-icon"></i>
+                            <i class="fas fa-spinner 
+                            player__move-icon
+                            player__move-icon--animation
+                            "></i>
                         </div>
                         <div class="player__controls">
                             <button class="player__control" disabled>
@@ -76,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="game__row">
+            <div class="game__row" >
                 <button class="game__next-round" id="next-round">
                     Start 
                 </button>
