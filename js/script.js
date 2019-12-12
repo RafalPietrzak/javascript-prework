@@ -93,30 +93,48 @@ q.c = 10;
 console.log('q.c: ' + q.c + ', o.c:' + o.c);
 */
 const game = function (){
-    //Values saved between rounds 
-    const lastStateFild = {
-        'round-number' : 1,
-        'palyer-score' : 0,
-        'computer-score': 0                  
-    };
-    
-    //key - css id button, value - function on click
-    const idButtons = {
-        'player-rock'  : function () { idIncrementFild['round-number'].add()},
-        'player-paper' : function () {console.log(1);},
-        'player-scissors' : function () {console.log(1);},
-        'next-round' : function () {console.log(1);},
+     
+    //id = css id, click = function run on click
+    const buttons = {
+        'playerRock'  : {
+            'id' : 'player-rock',
+            'click' : function () { incrementFild.roundNumber.add()}
+        },
+        'playerPaper' : {
+            'id' : 'player-paper',
+            'click' : function () { incrementFild.roundNumber.add()}
+        },
+        'playeScissors' : {
+            'id' : 'player-scissors',
+            'click' : function () { incrementFild.roundNumber.add()}
+        },
+        'nextRound' : {
+            'id' : 'next-round',
+            'click' : function () { incrementFild.roundNumber.add()}
+        }
     }
     
     //Key - css id filds, value element and increment function
-    const idIncrementFild = {
-        'round-number' : {element: null, add: null}, 
-        'palyer-score' : {element: null, add: null},
-        'computer-score' : {element: null, add: null},
+    const incrementFild = {
+        'roundNumber' : {
+            id: 'round-number', 
+            element: null, 
+            add: null, 
+            state: 1}, 
+        'palyerScore' : {
+            id: 'palyer-score', 
+            element: null, 
+            add: null, 
+            state: 0},
+        'computerScore' : {
+            id: 'computer-score', 
+            element: null, 
+            add: null, 
+            state: 0},
     }
 
     //Key - css id filds, value element and increment function
-    const idFild = {
+    const updateFild = {
         'round-result' : {element: null, updata: null},
         'player-move'  : {element: null, updata: null},
         'computer-move' :  {element: null, updata: null},
@@ -125,21 +143,21 @@ const game = function (){
     
     //Get element and add increment function '.add()'
     const addIncrementFunction = function () {
-        for(let key of Object.keys(idIncrementFild)){
-            idIncrementFild[key].element = document.getElementById(key);
-            idIncrementFild[key].add = function () {
-                let key = this.element.id;
-                lastStateFild[key] = lastStateFild[key] + 1
-                idIncrementFild[key].element.innerHTML = '' + lastStateFild[key];
+        for(let key of Object.keys(incrementFild)){
+            let fild = incrementFild[key];
+            fild.element = document.getElementById(fild.id);
+            fild.add = function () {
+                this.state = this.state + 1;
+                this.element.innerHTML = '' + this.state;
             } 
         }
     } 
     
     //Add listeners to all button
     const addListeners = function () {
-        for(let key of Object.keys(idButtons)){
-            document.getElementById(key)
-            .addEventListener('click', idButtons[key]);  
+        for(let key of Object.keys(buttons)){
+            let button = buttons[key];
+            document.getElementById(button.id).addEventListener('click', button.click);  
         }     
     }
 
