@@ -92,18 +92,48 @@ console.log('q.c: ' + q.c + ', o.c:' + o.c);
 q.c = 10;
 console.log('q.c: ' + q.c + ', o.c:' + o.c);
 */
-const g = {
-    'value' : 0,
-    'add' : function (value) {
-        this.value = this.value + value; 
+const game = function (){
+    //Values saved between rounds 
+    const state = {
+        'roundNumber' : 1,
+        'playerScore' : 0,
+        'computerScore': 0                  
+    };
+    
+    //key - css id button, value - function on click
+    const idButtons = {
+        'player-rock'  : function () {console.log(1);},
+        'player-paper' : function () {console.log(1);},
+        'player-scissors' : function () {console.log(1);},
+        'next-round' : function () {console.log(1);},
     }
-};
+    
+    //Key - css id filds, value update function
+    const idFild = {
+        'round-number' : function () {},
+        'round-result' : function () {},
+        'palyer-score' : function () {},
+        'player-move'  : function () {},
+        'computer-score' : function () {},
+        'computer-move' : function () {},
+    }
+    
+    //Add listeners to all button
+    addListeners = function () {
+        for(let key of Object.keys(idButtons)){
+            document.getElementById(key)
+            .addEventListener('click', idButtons[key]);  
+        }     
+    }
 
-document.getElementById('player-rock').addEventListener('click', 
-        function () {
-            g.add(1);
-            console.log(g.value);
-        });
+    //Colect all nesesery function for innit game
+    initGame = function () {
+        addListeners();
+    }
+    initGame();
+}
 
-
+//Start game
+game();
+    
 
