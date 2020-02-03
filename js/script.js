@@ -49,9 +49,8 @@ const game = function (){
                 return moves.paper;
             } else if (value == '3') {
                 return moves.scissors; 
-            } else {
-                return moves.noMove;
-            } 
+            }
+            return moves.noMove;     
         }
 
         const computerMove =  getMoveByValue(Math.floor(Math.random() * 3 + 1));
