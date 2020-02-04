@@ -2,34 +2,34 @@ const game = function (){
      
     //id = css id, click = function run on click
     const buttons = {
-        'playerRock'  : {
-            'id' : 'player-rock',
-            'element' : {},
-            'click' : function () { 
+        playerRock  : {
+            id : 'player-rock',
+            element : {},
+            click : function () { 
                 gameLogic(moves.rock);
             },
-            'disabled' : true 
+            disabled : true 
         },
-        'playerPaper' : {
-            'id' : 'player-paper',
-            'element' : {},
-            'click' : function () {
+        playerPaper : {
+            id : 'player-paper',
+            element : {},
+            click : function () {
                 gameLogic(moves.paper);
             },
-            'disabled' : true
+            disabled : true
         },
-        'playeScissors' : {
-            'id' : 'player-scissors',
-            'element' : {},
-            'click' : function () {
+        playeScissors : {
+            id : 'player-scissors',
+            element : {},
+            click : function () {
                 gameLogic(moves.scissors);
             },
-            'disabled' : true
+            disabled : true
         },
-        'nextRound' : {
-            'id' : 'next-round',
-            'element' : {},
-            'click' : function () { 
+        nextRound : {
+            id : 'next-round',
+            element : {},
+            click : function () { 
                 this.innerHTML = 'Następna runda';
                 updateFilds.playerMove.update(moves.noMove.icon);
                 updateFilds.computerMove.update(moves.noMove.icon);
@@ -37,7 +37,7 @@ const game = function (){
                 switchButton();
                 incrementFilds.roundNumber.add()
             },
-            'disabled' : false
+            disabled : false
         }
     }
     
@@ -111,17 +111,17 @@ const game = function (){
 
     //Key - css id filds, value element and increment function
     const incrementFilds = {
-        'roundNumber' : {
+        roundNumber : {
             id: 'round-number', 
             element: null, 
             add: null, 
             state: 0}, 
-        'playerScore' : {
+        playerScore : {
             id: 'player-score', 
             element: null, 
             add: null, 
             state: 0},
-        'computerScore' : {
+        computerScore : {
             id: 'computer-score', 
             element: null, 
             add: null, 
@@ -130,17 +130,17 @@ const game = function (){
 
     //Key - css id filds, value element and increment function
     const updateFilds = {
-        'roundResult' : {
+        roundResult : {
             id: 'round-result',
             element: null, 
             update: null
         },
-        'playerMove'  : {
+        playerMove  : {
             id: 'player-move',
             element: null, 
             update: null
         },
-        'computerMove' :  {
+        computerMove :  {
             id: 'computer-move',
             element: null, 
             update: null
@@ -148,27 +148,27 @@ const game = function (){
     }
 
     const resultLabel = {
-        'playerWin' : 'Wygrałeś!',
-        'playerFail': 'Przegrałeś!',
-        'draw' : 'Remis!'
+        playerWin : 'Wygrałeś!',
+        playerFail : 'Przegrałeś!',
+        draw : 'Remis!'
     }
 
     const moves = {
-        'noMove' : {
-            'value' : null,
-            'icon' : '<i class="fas fa-spinner player__move-icon player__move-icon--animation"></i>'
+        noMove : {
+            value : null,
+            icon : '<i class="fas fa-spinner player__move-icon player__move-icon--animation"></i>'
         },
-        'rock' : {
-            'value' : '1',
-            'icon' : '<i class="fas fa-hand-rock player__move-icon"></i>'
+        rock : {
+            value : '1',
+            icon : '<i class="fas fa-hand-rock player__move-icon"></i>'
         },
-        'paper' : {
-            'value' : '2',
-            'icon' : '<i class="fas fa-hand-paper player__move-icon"></i>'
+        paper : {
+            value : '2',
+            icon : '<i class="fas fa-hand-paper player__move-icon"></i>'
         },
-        'scissors' : {
-            'value' : '3',
-            'icon' : '<i class="fas fa-hand-scissors player__move-icon"></i>'
+        scissors : {
+            value : '3',
+            icon : '<i class="fas fa-hand-scissors player__move-icon"></i>'
         }
     }
 
